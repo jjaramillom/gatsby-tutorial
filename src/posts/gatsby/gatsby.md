@@ -1,11 +1,12 @@
 ---
 slug: '/blog/gatsby'
-title: "The great Gatsby Bootcamp"
-date: "2019-04-04"
+title: 'The great Gatsby Bootcamp'
+date: '2019-04-04'
 ---
 
-
 I just launched a new bootcamp!
+
+![Grass](./grass.jpg)
 
 ## Topics covered
 
