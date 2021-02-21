@@ -1,29 +1,44 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, graphql, useStaticQuery} from 'gatsby';
 
 import classes from './Header.module.scss';
 
-const Header = () => (
-	<header>
-		<h1>Jacobo's Blog site</h1>
-		<nav>
-			<Link className={classes.link} to="/">
-				Index
-			</Link>
-			&nbsp;|&nbsp;
-			<Link className={classes.link} to="/blog">
-				Blog
-			</Link>
-			&nbsp;|&nbsp;
-			<Link className={classes.link} to="/contact">
-				Contact
-			</Link>
-			&nbsp;|&nbsp;
-			<Link className={classes.link} to="/about">
-				About
-			</Link>
-		</nav>
-	</header>
-);
+const Header = () => {
+	const data = useStaticQuery<GatsbyTypes.Query>(query);
+
+	return (
+		<header className={classes.header}>
+			<h1>
+				<Link className={classes.title} to="/">
+					{data.site?.siteMetadata?.description}
+				</Link>
+			</h1>
+			<nav>
+				<Link className={classes.navItem} activeClassName={classes.active} to="/">
+					Index
+				</Link>
+				<Link className={classes.navItem} activeClassName={classes.active} to="/blog">
+					Blog
+				</Link>
+				<Link className={classes.navItem} activeClassName={classes.active} to="/contact">
+					Contact
+				</Link>
+				<Link className={classes.navItem} activeClassName={classes.active} to="/about">
+					About
+				</Link>
+			</nav>
+		</header>
+	);
+};
 
 export default Header;
+
+const query = graphql`
+	query {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+	}
+`;

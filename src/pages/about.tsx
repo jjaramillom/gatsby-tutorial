@@ -8,10 +8,11 @@ const BlogPage = () => {
 				<h1>About</h1>
 				<p>Some important data</p>
 				<p>
-					Want to know more? Click <Link to="/contact">here</Link>
+					Want to know more? Click <a href="/contact">here</a>
 				</p>
 			</Layout>
 	);
 };
 
 export default BlogPage;
+ 
